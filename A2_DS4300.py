@@ -3,7 +3,6 @@ import pandas as pd
 from datetime import datetime as dt, timedelta as td
 import redis
 import numpy as np
-import pdb
 
 
 def postTweets(row: pd.Series, engine):
@@ -62,26 +61,6 @@ def getHomeTimeline(engine, user: int):
 
     print(f'timeline for user {user}:')
     print(tweets)
-
-
-# def getAllTimelineKeys(engine):
-#     """
-#     :param engine: the Redis connection to our database
-#     :return: A list of all existing timeline keys
-#     """
-#     cursor = 0
-#     timeline_keys = []
-#
-#     while True:
-#         cursor, keys = engine.scan(cursor, match='timeline:*')
-#         timeline_keys.extend(keys)
-#
-#         # Break the loop when the cursor is 0, indicating the end of the keyspace
-#         if cursor == 0:
-#             break
-#
-#     return list(map(lambda key: key.split(":")[1], timeline_keys))
-
 
 # Driver program without specific knowledge of underlying database
 def main():
